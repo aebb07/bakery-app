@@ -29,16 +29,6 @@ function loginWithRedirect () {
 		);
 }
 
-function logout () {
-	firebaseAuth.signOut()
-		.then(
-			console.log('User leave.')
-		)
-		.catch(
-			err=>console.error(err)
-		);
-}
-
 function goSignUpUser() {
     componente = "SignUpUser";
 }
@@ -51,9 +41,9 @@ function goLogInUser() {
 
 <div>
     {#if user}
-		<span id="out" on:click={logout}><i class="fas fa-sign-out-alt"></i></span>
 		<Content bind:user/>
-    {:else}
+	{:else}
+	<h1>Bakery</h1>
         <div class="login-Content">
             <p>Continuar con</p>
             <button on:click={loginWithRedirect}><i class="fab fa-google"></i>oogle</button>
@@ -65,3 +55,12 @@ function goLogInUser() {
         </div>
     {/if}
 </div>
+
+<style>
+	h1 {
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	}
+</style>

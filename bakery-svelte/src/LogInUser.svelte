@@ -2,6 +2,7 @@
 import {firebaseAuth} from './firebase';
 export var email, password;
 
+
 function logIn() {
     firebaseAuth.signInWithEmailAndPassword(email, password).catch(function(error) {
             console.log('Hubo un error al iniciar sesión')

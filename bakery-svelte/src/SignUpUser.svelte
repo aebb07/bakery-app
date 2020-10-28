@@ -1,7 +1,6 @@
 <script>
     import {firebaseAuth} from './firebase';
 
-    export var componente;
     var email, password;
 
     function logOn () {
