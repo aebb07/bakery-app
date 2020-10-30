@@ -2,9 +2,11 @@
 import Login from './Login.svelte';
 import LogInUser from './LogInUser.svelte';
 import SignUpUser from './SignUpUser.svelte';
+import Content from './Content.svelte';
 
 var user;
 var componente = 'Login';
+
 
 $: console.log(componente)
 
@@ -24,7 +26,11 @@ $: console.log(componente)
 	{#if componente === 'LogInUser'}
 		<LogInUser bind:user bind:componente/>
 	{/if}
-	
+
+	{#if componente === 'Content'}
+		<Content bind:user bind:componente/>
+	{/if}
+
 </main>
 
 <style>

@@ -4,10 +4,8 @@
     var email, password;
 
     function logOn () {
-        firebaseAuth.createUserWithEmailAndPassword(email, password).catch(function(error){
-        var errorCode = error.code;
-        var errorMessage = error.message;
-            if (email.length < 4) {
+
+        if (email.length < 4) {
                 alert('El email no es valido');
             }
             if (password.length < 6 == 'auth/weak-password') {
@@ -17,6 +15,10 @@
                 alert(errorMessage);
             }
             console.log(error)
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password).catch(function(error){
+        var errorCode = error.code;
+        var errorMessage = error.message;
         })
         sendEmailVerification()
     }

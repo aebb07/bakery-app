@@ -4,6 +4,7 @@ import Content from './Content.svelte';
 
 export var user;
 export var componente;
+export var sideBar;
 
 
 firebaseAuth.onAuthStateChanged(
@@ -41,7 +42,7 @@ function goLogInUser() {
 
 <div>
     {#if user}
-		<Content bind:user/>
+		<Content bind:user bind:sideBar/>
 	{:else}
 	<h1>Bakery</h1>
         <div class="login-Content">
