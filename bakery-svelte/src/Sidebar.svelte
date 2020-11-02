@@ -1,10 +1,10 @@
 <script>
-var sideBar;
+  import {firebaseAuth} from './firebase';
+  import { fly } from 'svelte/transition';
+  import MiPerfil from './MiPerfil.svelte';
 
-async function closeBtn(){
-    sideBar = false;
-}
-
+  export let show = false;
+  let miPerfil_show = false;
 
 async function logout () {
 	firebaseAuth.signOut()
@@ -16,34 +16,38 @@ async function logout () {
 		);
 }
 </script>
-<nav>
-        <div id="mySidebar" class="sidebar">
-            <span class="closebtn" onclick={closeBtn}>&times;</span>
-            <p>Mi Perfil</p>
-            <p>Mis Pedidos</p>
-            <p>Métodos de Pago</p>
-            <p>Preguntas</p>
-            <p>Mi Perfil</p>
-            <p on:click={logout}>Salir</p>
-        </div>
-          
-        <!--div class="side-menu">
-            <button class="close-btn" on:click={() => closeBtn()}>X</button>
-            <div id="user-panel">
-                <img class="user-img" src={user.photoURL} alt="user-picture">
-                <h1 class="user-name">HOLA! {user.displayName}</h1>
-            </div>
-                    <p>Mi Perfil</p>
-                    <p>Mis Pedidos</p>
-                    <p>Métodos de Pago</p>
-                    <p>Preguntas</p>
-                    <p>Mi Perfil</p>
-                    <p on:click={logout}>Salir</p>
-        </div-->
-    </nav>
 
+  {#if show}
+  <nav transition:fly={{x: 250, opacity: 1}}>
+
+    <!--div id="user-panel">
+      <img class="user-img" src={user.photoURL} alt="user-picture">
+      <h1 class="user-name">HOLA! {user.displayName}</h1>
+    </div-->
+      <p on:click={() => {miPerfil_show = true; show = false;}}>Mi Perfil</p>
+      <p on:click={() => {miPerfil_show = true; show = false;}}>Mis Pedidos</p>
+      <p on:click={() => {miPerfil_show = true; show = false;}}>Métodos de Pago</p>
+      <p on:click={() => {miPerfil_show = true; show = false;}}>Preguntas</p>
+      <button on:click={() => {logout}}>Salir</button>
+    </nav>
+{/if}
+
+<MiPerfil bind:show={miPerfil_show}/>
+          
+        
 <style>
-.sidebar {
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 2rem 1rem 0.6rem;
+  background: #242424;
+  overflow-x: auto;
+	width: 20rem;
+}
+/*.sidebar {
   height: 100%; 
   width: 0; 
   position: fixed; 
@@ -75,24 +79,5 @@ async function logout () {
   font-size: 36px;
   margin-left: 50px;
 }
-
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-#first {
-  transition: margin-left .5s;
-  padding: 20px;
-}
-
+*/
 </style>
