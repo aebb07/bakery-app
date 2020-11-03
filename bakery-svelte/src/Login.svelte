@@ -2,18 +2,27 @@
 import {firebaseAuth, googleAuthProvider} from './firebase';
 import Content from './Content.svelte';
 
-export var user;
+//export var user;
+
+import {user} from './store.js';
+var localUser;
+const unsubscribe = user.subscribe(value => {
+	localUser = value;
+});
+
 export var componente;
-export var sideBar;
+
 
 
 firebaseAuth.onAuthStateChanged(
 
 function(usr) {
 	if (usr) {
-		user = usr;
+		//user = usr;
+		user.set(usr);
 	} else {
-		user = null;
+		//user = null;
+		user.set(null);
 	}
 });
 
@@ -21,7 +30,8 @@ function loginWithRedirect () {
 	firebaseAuth.signInWithRedirect(googleAuthProvider).then(
 			result=>{
 				var token = result.credential.accessToken;
-				user = result.user;
+				// user = result.user;
+				user.set(result.user);
 				console.log('User arrives:', user)
 			}
 		)
@@ -41,8 +51,8 @@ function goLogInUser() {
 </script>
 
 <div>
-    {#if user}
-		<Content bind:user bind:sideBar/>
+	{#if localUser}
+		<Content bind:componente/>
 	{:else}
 	<h1>Bakery</h1>
         <div class="login-Content">

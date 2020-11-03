@@ -4,7 +4,8 @@ import LogInUser from './LogInUser.svelte';
 import SignUpUser from './SignUpUser.svelte';
 import Content from './Content.svelte';
 
-var user;
+//var user;
+
 var componente = 'Login';
 
 
@@ -14,24 +15,25 @@ $: console.log(componente)
 
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+	
+	<Login bind:componente/>
 
-	{#if componente === 'Login'}
-		<Login bind:user bind:componente/>
+	<!--{#if componente === 'Login'}
+		<Login bind:componente/>
 	{/if}
 
 	{#if componente === 'SignUpUser'}
-		<SignUpUser bind:user bind:componente/>
+		<SignUpUser bind:componente/>
 	{/if}
 
 	{#if componente === 'LogInUser'}
-		<LogInUser bind:user bind:componente/>
+		<LogInUser bind:componente/>
 	{/if}
 
 	{#if componente === 'Content'}
-		<Content bind:user bind:componente/>
-	{/if}
+		<Content bind:componente/>
+	{/if}-->
 	
-
 
 <style>
 

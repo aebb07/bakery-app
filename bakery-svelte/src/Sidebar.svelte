@@ -4,7 +4,14 @@
   import MiPerfil from './MiPerfil.svelte';
 
   export let show = false;
-  let miPerfil_show = false;
+  //export var user;
+  import {user} from './store.js'
+  var localUser;
+	const unsubscribe = user.subscribe(value => {
+		localUser = value;
+	});
+
+  export var componente;
 
 async function logout () {
 	firebaseAuth.signOut()
@@ -15,52 +22,44 @@ async function logout () {
 			err=>console.error(err)
 		);
 }
+
+function goMiPerfil() {
+	componente = "MiPerfil";
+}
 </script>
 
   {#if show}
   <nav transition:fly={{x: 250, opacity: 1}}>
 
-    <!--div id="user-panel">
-      <img class="user-img" src={user.photoURL} alt="user-picture">
-      <h1 class="user-name">HOLA! {user.displayName}</h1>
-    </div-->
-      <p on:click={() => {miPerfil_show = true; show = false;}}>Mi Perfil</p>
-      <p on:click={() => {miPerfil_show = true; show = false;}}>Mis Pedidos</p>
-      <p on:click={() => {miPerfil_show = true; show = false;}}>Métodos de Pago</p>
-      <p on:click={() => {miPerfil_show = true; show = false;}}>Preguntas</p>
-      <button on:click={() => {logout}}>Salir</button>
+    <div id="user-panel">
+      <img class="user-img" src={localUser.photoURL} alt="user-picture">
+      <h1 class="user-name">HOLA! {localUser.displayName}</h1>
+    </div>
+      <p on:click={goMiPerfil}>Mi Perfil</p>
+      <p>Mis Pedidos</p>
+      <p>Métodos de Pago</p>
+      <p>Preguntas</p>
+      <button on:click={logout}>Salir</button>
     </nav>
 {/if}
 
-<MiPerfil bind:show={miPerfil_show}/>
-          
+         
         
 <style>
 
 nav {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   height: 100%;
   padding: 2rem 1rem 0.6rem;
   background: #242424;
   overflow-x: auto;
 	width: 20rem;
-}
-/*.sidebar {
-  height: 100%; 
-  width: 0; 
-  position: fixed; 
-  z-index: 1; 
-  top: 0;
-  left: 0;
-  background-color: #111; 
-  overflow-x: hidden; 
-  padding-top: 60px; 
-  transition: 0.5s; 
+  z-index: 1;
 }
 
-.sidebar p {
+p {
   padding: 8px 8px 8px 32px;
   font-size: 25px;
   color: #818181;
@@ -68,16 +67,8 @@ nav {
   transition: 0.3s;
 }
 
-.sidebar p:hover {
+p:hover {
   color: #f1f1f1;
 }
 
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-*/
 </style>
