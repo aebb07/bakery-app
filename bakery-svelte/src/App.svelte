@@ -16,9 +16,7 @@ $: console.log(componente)
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 	
-	<Login bind:componente/>
-
-	<!--{#if componente === 'Login'}
+	{#if componente === 'Login'}
 		<Login bind:componente/>
 	{/if}
 
@@ -30,7 +28,7 @@ $: console.log(componente)
 		<LogInUser bind:componente/>
 	{/if}
 
-	{#if componente === 'Content'}
+	<!--{#if componente === 'Content'}
 		<Content bind:componente/>
 	{/if}-->
 	

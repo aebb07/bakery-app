@@ -14,12 +14,12 @@
             } else {
                 alert(errorMessage);
             }
-            console.log(error)
+            console.log(error);
 
         firebaseAuth.createUserWithEmailAndPassword(email, password).catch(function(error){
         var errorCode = error.code;
         var errorMessage = error.message;
-        })
+        });
         sendEmailVerification()
     }
 
@@ -32,6 +32,18 @@
     }
 </script>
 
-<input type="text" placeholder="Email" bind:value={email}>
-<input type="password" placeholder="Contraseña" bind:value={password}>
-<button on:click={logOn}>Crear</button>
+<div class="signup-content">
+    <input type="text" placeholder="Email" bind:value={email}>
+    <input type="password" placeholder="Contraseña" bind:value={password}>
+    <button on:click={logOn}>Crear</button>
+</div>
+
+<style>
+.signup-content {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+</style>

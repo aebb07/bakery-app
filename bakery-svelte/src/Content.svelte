@@ -3,11 +3,20 @@ import Sidebar from './Sidebar.svelte';
 import Ofertas from './Ofertas.svelte';
 import ContentProducts from './ContentProducts.svelte';
 
+
 //export var user;
 export var componente;
 let sidebar_show = false;
 
+import {user} from './store.js'
+  var localUser;
+	const unsubscribe = user.subscribe(value => {
+		localUser = value;
+	});
+
 </script>
+
+
 <div class="nav">
         <span class="hamburger" on:click={() => sidebar_show = !sidebar_show}><i class="fas fa-bars"></i></span>
 
@@ -22,6 +31,7 @@ let sidebar_show = false;
 </div>
 
 <ContentProducts/>
+
 
 
 <style>

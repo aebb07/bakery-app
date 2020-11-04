@@ -38,7 +38,17 @@ function loginWithRedirect () {
 		.catch(
 			err=>console.error(err)
 		);
+	//saveUser()	
 }
+
+/*async function saveUser() {
+		var doc = {
+
+		}
+		
+		await firestoreDb.collection(user.uid).add(doc);
+	}
+*/
 
 function goSignUpUser() {
     componente = "SignUpUser";
@@ -55,10 +65,10 @@ function goLogInUser() {
 		<Content bind:componente/>
 	{:else}
 	<h1>Bakery</h1>
-        <div class="login-Content">
+        <div class="login-content">
             <p>Continuar con</p>
             <button on:click={loginWithRedirect}><i class="fab fa-google"></i>oogle</button>
-            <div>
+            <div class="login1">
                 <button on:click={goSignUpUser}>Regístrate</button>
                 <p>¿Ya tienes una cuenta?</p>
                 <button on:click={goLogInUser}>Iniciar sesión</button>
@@ -73,5 +83,14 @@ function goLogInUser() {
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
+		text-align: center;
+	}
+
+	.login-content, .login1 {
+		align-items: center;
+    	display: flex;
+    	justify-content: center;
+    	height: 100%;
+    	flex-direction: column;
 	}
 </style>

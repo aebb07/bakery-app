@@ -1,33 +1,36 @@
 <script>
-    let count = 0;
+let count = 0;
 
-    function plusCount() {
-		count += 1;
+function plusCount() {
+    count += 1;
+}
+
+function minusCount() {
+    count -= 1
+    if (count === -1) {
+        count = 0;
     }
-    
-    function minusCount() {
-		count -= 1;
-	}
+}
 </script>
 
 
-<article class="contact-card">
-	<h2>
-		<slot>
-			<span class="missing">BLABLA</span>
-		</slot>
-	</h2>
-
-	<div class="address">
-		<slot>
-			<span class="plus" on:click={plusCount}><i class="fas fa-plus-circle"></i></span>
-                <span>{count}</span>
-			<span class="minus" on:click={minusCount}><i class="fas fa-minus-circle"></i></span>
-		</slot>
+<div class="product-card">
+	<div>
+		<span class="title-product">BLABLA</span>
 	</div>
-</article>
 
+	<div class="buttons">
+		<dispatch_dev>
+			<span class="plus" on:click={plusCount}><i class="fas fa-plus-circle"></i></span>
+            <span>{count}</span>
+			<span class="minus" on:click={minusCount}><i class="fas fa-minus-circle"></i></span>
+		</div>
+</div>
 
 <style>
 
+.product-card {
+	display: flex;
+justify-content: center;
+}
 </style>

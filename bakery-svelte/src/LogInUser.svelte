@@ -36,7 +36,22 @@ function sendPasswordReset() {
 
 </script>
 
-<input type="text" placeholder="Email" bind:value={email}>
-<input type="password" placeholder="Contraseña" bind:value={password}>
-<button on:click={sendPasswordReset}>¿Olvidaste tu contraseña?</button>
-<button on:click={logIn}>Entrar</button>
+<div class="login-content">
+    <input type="text" placeholder="Email" bind:value={email}>
+    <input type="password" placeholder="Contraseña" bind:value={password}>
+    <button on:click={sendPasswordReset}>¿Olvidaste tu contraseña?</button>
+    <button on:click={logIn}>Entrar</button>
+</div>
+
+
+
+<style>
+
+.login-content {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+</style>

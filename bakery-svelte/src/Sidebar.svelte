@@ -1,7 +1,7 @@
 <script>
   import {firebaseAuth} from './firebase';
   import { fly } from 'svelte/transition';
-  import MiPerfil from './MiPerfil.svelte';
+
 
   export let show = false;
   //export var user;
@@ -31,10 +31,12 @@ function goMiPerfil() {
   {#if show}
   <nav transition:fly={{x: 250, opacity: 1}}>
 
+    
     <div id="user-panel">
       <img class="user-img" src={localUser.photoURL} alt="user-picture">
       <h1 class="user-name">HOLA! {localUser.displayName}</h1>
     </div>
+ 
       <p on:click={goMiPerfil}>Mi Perfil</p>
       <p>Mis Pedidos</p>
       <p>Métodos de Pago</p>
