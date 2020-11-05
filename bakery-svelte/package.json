@@ -18,6 +18,9 @@
     "svelte-feather-icons": "^3.3.0"
   },
   "dependencies": {
+    "@dicebear/avatars": "^4.2.5",
+    "@dicebear/avatars-identicon-sprites": "^4.2.5",
+    "@dicebear/avatars-initials-sprites": "^4.2.5",
     "sirv-cli": "^1.0.0"
   }
 }

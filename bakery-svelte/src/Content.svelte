@@ -4,15 +4,11 @@ import Ofertas from './Ofertas.svelte';
 import ContentProducts from './ContentProducts.svelte';
 
 
-//export var user;
+
 export var componente;
 let sidebar_show = false;
 
-import {user} from './store.js'
-  var localUser;
-	const unsubscribe = user.subscribe(value => {
-		localUser = value;
-	});
+
 
 </script>
 

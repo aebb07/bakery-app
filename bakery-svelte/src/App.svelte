@@ -2,6 +2,7 @@
 import Login from './Login.svelte';
 import LogInUser from './LogInUser.svelte';
 import SignUpUser from './SignUpUser.svelte';
+import MiPerfil from './MiPerfil.svelte';
 import Content from './Content.svelte';
 
 //var user;
@@ -28,10 +29,13 @@ $: console.log(componente)
 		<LogInUser bind:componente/>
 	{/if}
 
-	<!--{#if componente === 'Content'}
-		<Content bind:componente/>
-	{/if}-->
+	{#if componente === 'MiPerfil'}
+		<MiPerfil bind:componente/>
+	{/if}
 	
+	{#if componente === 'Content'}
+		<Content bind:componente/>
+	{/if}
 
 <style>
 

@@ -6,7 +6,7 @@ export const user = writable();
 /**
  * Opcional:
  */
-user.subscribe(value => {
+/*user.subscribe(value => {
 	console.log(value);
-});
+});*/
 

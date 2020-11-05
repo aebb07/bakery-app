@@ -16,7 +16,61 @@ function minusCount() {
 
 <div class="product-card">
 	<div>
-		<span class="title-product">BLABLA</span>
+		<span class="title-product">BLABLA1</span>
+	</div>
+
+	<div class="buttons">
+		<dispatch_dev>
+			<span class="plus" on:click={plusCount}><i class="fas fa-plus-circle"></i></span>
+            <span>{count}</span>
+			<span class="minus" on:click={minusCount}><i class="fas fa-minus-circle"></i></span>
+		</div>
+</div>
+
+<div class="product-card">
+	<div>
+		<span class="title-product">BLABLA2</span>
+	</div>
+
+	<div class="buttons">
+		<dispatch_dev>
+			<span class="plus" on:click={plusCount}><i class="fas fa-plus-circle"></i></span>
+            <span>{count}</span>
+			<span class="minus" on:click={minusCount}><i class="fas fa-minus-circle"></i></span>
+		</div>
+</div>
+
+
+<div class="product-card">
+	<div>
+		<span class="title-product">BLABLA3</span>
+	</div>
+
+	<div class="buttons">
+		<dispatch_dev>
+			<span class="plus" on:click={plusCount}><i class="fas fa-plus-circle"></i></span>
+            <span>{count}</span>
+			<span class="minus" on:click={minusCount}><i class="fas fa-minus-circle"></i></span>
+		</div>
+</div>
+
+<div class="product-card">
+	<div>
+		<span class="title-product">BLABLA4</span>
+	</div>
+
+	<div class="buttons">
+		<dispatch_dev>
+			<span class="plus" on:click={plusCount}><i class="fas fa-plus-circle"></i></span>
+            <span>{count}</span>
+			<span class="minus" on:click={minusCount}><i class="fas fa-minus-circle"></i></span>
+		</div>
+</div>
+
+
+<div class="product-card">
+	<div>
+		<span class="title-product">BLABLA5</span>
 	</div>
 
 	<div class="buttons">
@@ -31,6 +85,6 @@ function minusCount() {
 
 .product-card {
 	display: flex;
-justify-content: center;
+	justify-content: center;
 }
 </style>

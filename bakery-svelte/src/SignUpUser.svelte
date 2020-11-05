@@ -8,19 +8,18 @@
         if (email.length < 4) {
                 alert('El email no es valido');
             }
-            if (password.length < 6 == 'auth/weak-password') {
-                alert('La contraseña debe tener al menos 6 caracteres');
+        if (password.length < 6 == 'auth/weak-password') {
+            alert('La contraseña debe tener al menos 6 caracteres');
 
-            } else {
-                alert(errorMessage);
-            }
-            console.log(error);
+        } 
 
         firebaseAuth.createUserWithEmailAndPassword(email, password).catch(function(error){
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        });
-        sendEmailVerification()
+            console.error(error)
+        }).then (
+            alert('Usuario creado')
+        )
+        //sendEmailVerification();
+        //saveUser();
     }
 
     function sendEmailVerification() {
@@ -30,6 +29,9 @@
             console.log(error)
         });
     }
+
+   
+
 </script>
 
 <div class="signup-content">
