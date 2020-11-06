@@ -7,7 +7,7 @@
       <!--$user,hasOwnProperty(photoURL)-->
       <img class="user-img" src={$user.photoURL} alt="user-picture">
 {:else if $user}
-        <img src="https://avatars.dicebear.com/api/jdenticon/{$user.email}.svg">
+        <img class="user-img" src="https://avatars.dicebear.com/api/jdenticon/{$user.email}.svg">
 {/if}
 
 {#if ($user && $user.displayName)}
@@ -16,3 +16,10 @@
         <h1 class="user-email">HOLA! {$user.email}</h1>
 {/if}
 
+<style>
+      .user-img {
+            width: 100px;
+            display: flex;
+            justify-content: center;
+      }
+</style>

@@ -1,7 +1,7 @@
 <script>
   import {firebaseAuth} from './firebase';
   import { fly } from 'svelte/transition';
-  import InformacionUser from './InformacionUser.svelte';
+  import UserInformation from './UserInformation.svelte';
 
   export let show = false;
   //export var user;
@@ -22,7 +22,7 @@ async function logout () {
 }
 
 function goMiPerfil() {
-	componente = "MiPerfil";
+	componente = "MyProfile";
 }
 </script>
 
@@ -30,7 +30,7 @@ function goMiPerfil() {
   <nav transition:fly={{x: 250, opacity: 1}}>
     
     <div id="user-panel">
-      <InformacionUser/>
+      <UserInformation/>
     </div>
  
       <p on:click={goMiPerfil}>Mi Perfil</p>

@@ -1,6 +1,6 @@
 <script>
 import Sidebar from './Sidebar.svelte';
-import Ofertas from './Ofertas.svelte';
+import Offers from './Offers.svelte';
 import ContentProducts from './ContentProducts.svelte';
 
 
@@ -19,7 +19,7 @@ let sidebar_show = false;
 <Sidebar bind:componente bind:show={sidebar_show} />
 </div>
 
-<Ofertas/>
+<Offers/>
 
 <div class="buy">
     <p class="text-buy">¿Ya terminaste?</p>
@@ -49,6 +49,7 @@ let sidebar_show = false;
         display: flex;
         align-items: center;
         background-color: #242424;
+        justify-content: center;
     }
 
     .text-buy {
