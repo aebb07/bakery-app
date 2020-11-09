@@ -2,13 +2,13 @@
 import {firebaseAuth, googleAuthProvider} from './firebase';
 import Content from './Content.svelte';
 
-//export var user;
+
 
 import {user} from './store.js';
+import { componente } from './store.js';
 
-export var componente;
 
-$: console.log($user)
+//$: console.log($user)
 
 
 
@@ -47,18 +47,18 @@ function loginWithRedirect () {
 */
 
 function goSignUpUser() {
-    componente = "SignUpUser";
+    $componente = "SignUpUser";
 }
 
 function goLogInUser() {
-	componente = "LogInUser";
+	$componente = "LogInUser";
 }
 
 </script>
 
 <div>
 	{#if $user}
-		<Content bind:componente/>
+		<Content/>
 	{:else}
 	<h1>Bakery</h1>
         <div class="login-content">

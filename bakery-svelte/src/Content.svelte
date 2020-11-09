@@ -4,26 +4,26 @@ import Offers from './Offers.svelte';
 import ContentProducts from './ContentProducts.svelte';
 
 
-
-export var componente;
 let sidebar_show = false;
+import { componente } from './store.js';
 
-
-
+function goToSummary() {
+	$componente = "SummaryPurchase";
+}
 </script>
 
 
 <div class="nav">
         <span class="hamburger" on:click={() => sidebar_show = !sidebar_show}><i class="fas fa-bars"></i></span>
 
-<Sidebar bind:componente bind:show={sidebar_show} />
+<Sidebar bind:show={sidebar_show} />
 </div>
 
 <Offers/>
 
 <div class="buy">
     <p class="text-buy">¿Ya terminaste?</p>
-    <button>COMPRAR</button>
+    <button class="buy-button" on:click={goToSummary}>COMPRAR</button>
 </div>
 
 <ContentProducts/>
@@ -42,7 +42,7 @@ let sidebar_show = false;
         float: left;
         font-size: 25px;
         padding-top: 0.5rem;
-        color: #ccc;
+        color: #f5f5f5;
     }
 
     .buy {

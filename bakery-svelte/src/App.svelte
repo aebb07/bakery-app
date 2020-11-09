@@ -4,46 +4,57 @@ import LogInUser from './LogInUser.svelte';
 import SignUpUser from './SignUpUser.svelte';
 import MyProfile from './MyProfile.svelte';
 import Content from './Content.svelte';
+import PanFrances from './PanFrances.svelte';
+import SummaryPurchase from './SummaryPurchase.svelte';
 
-//var user;
+import { componente } from './store.js';
 
-var componente = 'Login';
-
-
-$: console.log(componente)
+$: console.log($componente)
 
 </script>
 
 
+<svelte:head>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet"> 
+</svelte:head>
+
+
 	
-	{#if componente === 'Login'}
-		<Login bind:componente/>
+	{#if $componente === 'Login'}
+		<Login/>
 	{/if}
 
-	{#if componente === 'SignUpUser'}
-		<SignUpUser bind:componente/>
+	{#if $componente === 'SignUpUser'}
+		<SignUpUser/>
 	{/if}
 
-	{#if componente === 'LogInUser'}
-		<LogInUser bind:componente/>
+	{#if $componente === 'LogInUser'}
+		<LogInUser/>
 	{/if}
 
-	{#if componente === 'MyProfile'}
-		<MyProfile bind:componente/>
+	{#if $componente === 'MyProfile'}
+		<MyProfile/>
 	{/if}
 	
-	{#if componente === 'Content'}
-		<Content bind:componente/>
+	{#if $componente === 'Content'}
+		<Content/>
+	{/if}
+
+	{#if $componente === 'PanFrances'}
+		<PanFrances/>
+	{/if}
+
+	{#if $componente === 'SummaryPurchase'}
+		<SummaryPurchase/>
 	{/if}
 
 <style>
 
 	@media (min-width: 640px) {
-		main {
+		/*main {
 			max-width: none;
-		}
+		}*/
 	}
 </style>

@@ -20,7 +20,7 @@
 .offers-component {
         background-color: #1f9f8d;
         text-align: center;
-		padding: 2.5em;
+		padding: 4.5em;
 		margin: 0 auto;
         color: #f5f5f5;
     }

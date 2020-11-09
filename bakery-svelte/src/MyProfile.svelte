@@ -1,22 +1,25 @@
 <script>
-  export var componente;
-  var name= ''; 
-  var email, photoUrl, emailVerified;
+ import { componente } from './store.js'
+ import {user} from './store.js'
 
   
 function goBack() {
-  componente = "Content";
+  $componente = "Content";
 }
 </script>
 
 
 <div class="nav-bar">
       <span class="back-button" on:click={goBack}><i class="fas fa-arrow-left"></i></span>
+      <h1 class="profile">Mi Perfil</h1>
 </div>
-    <div>
+      {#if ($user && $user.displayName)}
+          <p class="user-name">{$user.displayName}</p>
+          <p class="user-email">{$user.email}</p>
+      {:else}
+          <p class="user-email">{$user.email}</p>
 
-
-    </div>
+      {/if}
 
 
 <style>
@@ -27,5 +30,11 @@ function goBack() {
 
 .nav-bar {
   padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  padding-left: 45px;
 }
 </style>

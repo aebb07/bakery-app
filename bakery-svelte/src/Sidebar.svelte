@@ -3,13 +3,9 @@
   import { fly } from 'svelte/transition';
   import UserInformation from './UserInformation.svelte';
 
+  import { componente } from './store.js';
   export let show = false;
-  //export var user;
-  //import {user} from './store.js'
 
-
-
-  export var componente;
 
 async function logout () {
 	firebaseAuth.signOut()
@@ -22,8 +18,9 @@ async function logout () {
 }
 
 function goMiPerfil() {
-	componente = "MyProfile";
+	$componente = "MyProfile";
 }
+
 </script>
 
   {#if show}
@@ -37,7 +34,7 @@ function goMiPerfil() {
       <p>Mis Pedidos</p>
       <p>Métodos de Pago</p>
       <p>Preguntas</p>
-      <button on:click={logout}>Salir</button>
+      <button class="logOut" on:click={logout}>Salir</button>
     </nav>
 {/if}
 
@@ -57,16 +54,39 @@ nav {
   z-index: 1;
 }
 
+#user-panel {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
 p {
   padding: 8px 8px 8px 32px;
-  font-size: 25px;
+  font-size: 20px;
   color: #818181;
   display: block;
   transition: 0.3s;
 }
 
 p:hover {
-  color: #f1f1f1;
+  color: #f5f5f5;
+}
+
+.logOut {
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  padding: 8px 8px 8px 32px;
+  background: none;
+  border: none;
+  font-weight: 700;
+}
+
+.logOut:hover {
+  color: #f5f5f5;
 }
 
 </style>
