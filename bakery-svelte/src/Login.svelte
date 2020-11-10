@@ -53,7 +53,9 @@ function goLogInUser() {
 	{#if $user}
 		<Content/>
 	{:else}
-	<h1>Bakery</h1>
+	<div class="img-logo">
+		<img class="logo-el-padrino" src="/img/EL-PADRINO.png" alt="logo">
+	</div>
         <div class="login-content">
             <p>Continuar con</p>
             <button on:click={loginWithRedirect}><i class="fab fa-google"></i>oogle</button>
@@ -67,12 +69,15 @@ function goLogInUser() {
 </div>
 
 <style>
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-		text-align: center;
+	.img-logo {
+		position: relative;
+		bottom: -55px;
+	}
+
+	.logo-el-padrino {
+		display: block;
+		margin: auto;
+		width: 450px;
 	}
 
 	.login-content, .login1 {
