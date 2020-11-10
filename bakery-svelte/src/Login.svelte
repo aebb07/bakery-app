@@ -8,8 +8,6 @@ import {user} from './store.js';
 import { componente } from './store.js';
 
 
-//$: console.log($user)
-
 
 
 firebaseAuth.onAuthStateChanged(
@@ -33,16 +31,11 @@ function loginWithRedirect () {
 		.catch(
 			err=>console.error(err)
 		);
-	saveUser()
+	//saveUser()
 }
 
-/*async function saveUser() {
-		var doc = {
-            email: email,
-            password: password,
-		}
-		
-		await firestoreDb.collection(user.uid).add(doc);
+/*
+		firestoreDb.collection(user.uid).add();
 	}
 */
 

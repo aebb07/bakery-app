@@ -1,28 +1,62 @@
 <script>
-    import Carousel from '@beyonk/svelte-carousel';
+    import { Swipe, SwipeItem } from "svelte-swipe";
+  
+    const swipeConfig = {
+      autoplay: false,
+      delay: 1000,
+      showIndicators: true,
+      transitionDuration: 1000,
+      defaultIndex: 0,
+    };
 </script>
-<Carousel>
-        <div class="offers-component">
-            <h1>OFERTA</h1>
-        </div>
-        <div class="offers-component">
-            <h1>OFERTA</h1>
-        </div>
-        <div class="offers-component">
-            <h1>OFERTA</h1>
-        </div>
-        <div class="offers-component">
-            <h1>OFERTA</h1>
-        </div>
 
-</Carousel>
+
+<div class="swipe-holder">
+    <Swipe {...swipeConfig}>
+      <SwipeItem>
+        <div class="offers-component">
+            <p>OFFERS</p>
+        </div>
+      </SwipeItem>
+  
+      <SwipeItem>
+        <div class="offers-component">
+            <p>OFFERS</p>
+        </div>
+      </SwipeItem>
+  
+      <SwipeItem>
+        <div class="offers-component">
+            <p class="offer-title">OFFERS</p>
+        </div>
+      </SwipeItem>
+  
+      <SwipeItem>
+        <div class="offers-component">
+            <p class="offer-title">OFFERS</p>
+        </div>
+      </SwipeItem>
+    </Swipe>
+  </div>
+
+
 <style>
 .offers-component {
         background-color: #1f9f8d;
-        text-align: center;
-		padding: 4.5em;
+        padding: 4.7em;
 		margin: 0 auto;
+        font-family: 'Poppins';
         color: #f5f5f5;
+        font-size: 20px;
+        font-weight: 800;
+        justify-content: center;
+        display: flex;
     }
 
+.swipe-holder{
+      height: 40vh;
+      width: 100%;
+    }
+ 
 </style>
+

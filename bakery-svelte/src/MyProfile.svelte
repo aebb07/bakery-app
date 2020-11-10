@@ -16,9 +16,10 @@ function goBack() {
       {#if ($user && $user.displayName)}
           <p class="user-name">{$user.displayName}</p>
           <p class="user-email">{$user.email}</p>
-      {:else}
+      {:else if ($user && $user.email)}
           <p class="user-email">{$user.email}</p>
-
+      {:else}
+        <p>Inicia sesión</p>
       {/if}
 
 

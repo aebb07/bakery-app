@@ -7,12 +7,16 @@
       <img class="user-img" src={$user.photoURL} alt="user-picture">
 {:else if $user}
         <img class="user-img" src="https://avatars.dicebear.com/api/jdenticon/{$user.email}.svg">
+{:else}
+      <p>Inicio sesión</p>
 {/if}
 
 {#if ($user && $user.displayName)}
       <h1 class="user-name">HOLA! {$user.displayName}</h1>
-      {:else}
+      {:else if ($user && $user.email)}
         <h1 class="user-email">HOLA! {$user.email}</h1>
+      {:else}
+       <p>Inicia sesión</p>
 {/if}
 
 <style>

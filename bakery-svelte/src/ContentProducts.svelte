@@ -10,17 +10,19 @@ var products = [
 ];
 
 
-
-
 function plusCount(product) {
-    product.count += 1;
+	console.log('+',product.count)
+	product.count += 1;
+	products = products
 }
 
 function minusCount(product) {
+	console.log('-',product.count)
     product.count -= 1
     if (product.count < 0) {
         product.count = 0;
-    }
+	}
+	products = products
 }
 
 function goToProduct(product) {
@@ -40,7 +42,7 @@ function goToProduct(product) {
 					<div class="buttons">
 							<span class="plus" on:click={()=>{plusCount(product)}}><i class="fas fa-plus-circle"></i></span>
 							<span>{product.count}</span>
-							<span class="minus" on:click={minusCount(product)}><i class="fas fa-minus-circle"></i></span>
+							<span class="minus" on:click={()=>{minusCount(product)}}><i class="fas fa-minus-circle"></i></span>
 					</div>
 							<p class="medidas"><strong>Precio:</strong> ${product.precio}</p>
 				</div>
