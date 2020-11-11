@@ -17,6 +17,7 @@ function goBack() {
           <p class="user-name">{$user.displayName}</p>
           <p class="user-email">{$user.email}</p>
       {:else if ($user && $user.email)}
+          <input type="text" placeholder="Nombre">
           <p class="user-email">{$user.email}</p>
       {:else}
         <p>Inicia sesión</p>

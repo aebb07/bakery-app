@@ -1,7 +1,9 @@
 <script>
     import {firebaseAuth} from './firebase';
+    import {user} from './store.js'
 
     var email, password;
+    var uid ;
 
     function logOn () {
 
@@ -19,7 +21,7 @@
             alert('Usuario creado')
         )
         //sendEmailVerification();
-        //saveUser();
+        saveUser();
     }
 
     function sendEmailVerification() {
@@ -30,7 +32,15 @@
         });
     }
 
-   
+    function saveUser() {
+    var doc = {
+            id: uid,
+            /*name: '',*/
+            email: email,
+            password: password
+		}
+        firebaseAuth.collection('users').add(doc);
+   }
 
 </script>
 
