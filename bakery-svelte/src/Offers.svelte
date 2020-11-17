@@ -54,7 +54,7 @@
     }
 
 .swipe-holder{
-      height: 40vh;
+      height: 28vh;
       width: 100%;
     }
  

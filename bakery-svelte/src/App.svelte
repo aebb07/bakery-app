@@ -6,8 +6,10 @@ import MyProfile from './MyProfile.svelte';
 import Content from './Content.svelte';
 import PanFrances from './PanFrances.svelte';
 import SummaryPurchase from './SummaryPurchase.svelte';
+import ChangePassword from './ChangePassword.svelte';
 
 import { componente } from './store.js';
+
 
 $: console.log($componente)
 
@@ -48,6 +50,10 @@ $: console.log($componente)
 
 	{#if $componente === 'SummaryPurchase'}
 		<SummaryPurchase/>
+	{/if}
+
+	{#if $componente === 'ChangePassword'}
+		<ChangePassword/>
 	{/if}
 
 <style>

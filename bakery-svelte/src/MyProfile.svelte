@@ -6,6 +6,10 @@
 function goBack() {
   $componente = "Content";
 }
+
+function goChangePass() {
+  $componente = "ChangePassword";
+}
 </script>
 
 
@@ -16,9 +20,11 @@ function goBack() {
       {#if ($user && $user.displayName)}
           <p class="user-name">{$user.displayName}</p>
           <p class="user-email">{$user.email}</p>
+          <p>Cambiar mi contraseña <span on:click={goChangePass}><i class="fas fa-chevron-right"></i></span></p>
       {:else if ($user && $user.email)}
           <input type="text" placeholder="Nombre">
           <p class="user-email">{$user.email}</p>
+          <p>Cambiar mi contraseña <span on:click={goChangePass}><i class="fas fa-chevron-right"></i></span></p>
       {:else}
         <p>Inicia sesión</p>
       {/if}
