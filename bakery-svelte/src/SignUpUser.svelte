@@ -41,7 +41,7 @@
             name: name,
             email: email
 		}
-        firebaseAuth.collection($user.uid).add(doc);
+        firebaseAuth.collection('users').add(doc);
    }
 
 // Volver al Login
