@@ -23,7 +23,7 @@
          )
         //sendEmailVerification();
         backToLogin();
-        saveUser
+        saveUser();
     }
 
     function sendEmailVerification() {
