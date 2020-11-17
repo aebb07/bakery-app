@@ -3,7 +3,7 @@
     import { user } from './store.js';
     import { componente } from './store.js';
 
-    var email, password;
+    var email, password, name;
     
 
     function logOn () {
@@ -38,7 +38,7 @@
 
     function saveUser() {
     var doc = {
-            name: '',
+            name: name,
             email: email
 		}
         firebaseAuth.collection($user.uid).add(doc);
@@ -52,6 +52,7 @@
 </script>
 
 <div class="signup-content">
+    <input type="text" placeholder="Nombre" bind:value={name}>
     <input type="text" placeholder="Email" bind:value={email}>
     <input type="password" placeholder="Contraseña" bind:value={password}>
     <button on:click={logOn}>Crear</button>
