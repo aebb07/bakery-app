@@ -31,7 +31,7 @@ function loginWithRedirect () {
 		.catch(
 			err=>console.error(err)
 		);
-	//saveUser()
+
 }
 
 /*
@@ -50,7 +50,7 @@ function goLogInUser() {
 </script>
 
 <div>
-	{#if $user}
+	{#if $user }
 		<Content/>
 	{:else}
 	<div class="img-logo">

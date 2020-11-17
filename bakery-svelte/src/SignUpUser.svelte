@@ -38,11 +38,10 @@
 
     function saveUser() {
     var doc = {
-            id: $user.uid,
             name: '',
-            email: $user.email
+            email: email
 		}
-        firebaseAuth.collection('users').add(doc);
+        firebaseAuth.collection($user.uid).add(doc);
    }
 
 // Volver al Login
