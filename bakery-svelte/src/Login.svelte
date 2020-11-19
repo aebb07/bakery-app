@@ -1,5 +1,5 @@
 <script>
-import {firebaseAuth, googleAuthProvider} from './firebase';
+import {firebaseAuth, googleAuthProvider, firestoreDb} from './firebase';
 import Content from './Content.svelte';
 
 
@@ -15,6 +15,16 @@ firebaseAuth.onAuthStateChanged(
 function(usr) {
 	if (usr) {
 		$user = usr;
+		/* firestoreDb.collection('users').where('uid', '==', uid).get().then(
+			snapshot => {
+				if (snapshot.empty) {
+				//Crear doc
+				return;
+				}
+			}
+		)
+		*/
+
 	} else {
 		$user = null;
 	}

@@ -23,16 +23,48 @@ function goAddNumber() {
 </div>
   <div class="user-container">
       {#if ($user && $user.displayName)}
-          <span><i class="fas fa-user"></i></span>
+
+        <div class="name">
+          <span class="icon-user"><i class="fas fa-user"></i></span>
           <p class="user-name">{$user.displayName}</p>
-          <span><i class="fas fa-envelope"></i></span><p class="user-email">{$user.email}</p>
-          <span><i class="fas fa-lock"></i></span><p>Cambiar mi contraseña <span on:click={goChangePass}><i class="fas fa-chevron-right"></i></span></p>
-          <span><i class="fas fa-mobile-alt"></i></span><p>Añadir número de teléfono<span on:click={goAddNumber}><i class="fas fa-chevron-right"></i></span></p>
+        </div> 
+
+          <div class="email">
+            <span class="icon-user"><i class="fas fa-envelope"></i></span>
+            <p class="user-email">{$user.email}</p>
+          </div>
+
+            <div class="change" on:click={goChangePass}>
+              <span class="icon-user"><i class="fas fa-lock"></i></span>
+              <p>Cambiar mi contraseña <span class="arrow"><i class="fas fa-chevron-right"></i></span></p>
+            </div>
+
+              <div class="number" on:click={goAddNumber}>
+                <span class="icon-user"><i class="fas fa-mobile"></i></span>
+                <p>Añadir número de teléfono<span class="arrow"><i class="fas fa-chevron-right"></i></span></p>
+              </div>
+
       {:else if ($user && $user.email)}
-          <span><i class="fas fa-user"></i></span><input type="text" placeholder="Nombre">
-          <span><i class="fas fa-envelope"></i></span><p class="user-email">{$user.email}</p>
-          <span><i class="fas fa-lock"></i></span><p>Cambiar mi contraseña <span on:click={goChangePass}><i class="fas fa-chevron-right"></i></span></p>
-          <span><i class="fas fa-mobile-alt"></i></span><p>Añadir número de teléfono<span on:click={goAddNumber}><i class="fas fa-chevron-right"></i></span></p>
+              
+              <div class="name">
+                <span class="icon-user"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="Nombre">
+              </div>
+
+                <div class="email">
+                  <span class="icon-user"><i class="fas fa-envelope"></i></span>
+                  <p class="user-email">{$user.email}</p>
+                </div>
+
+                  <div class="change" on:click={goChangePass}>
+                    <span class="icon-user"><i class="fas fa-lock"></i></span>
+                    <p>Cambiar mi contraseña <span><i class="fas fa-chevron-right"></i></span></p>
+                  </div>
+
+                    <div class="number" on:click={goAddNumber}>
+                      <span class="icon-user"><i class="fas fa-mobile"></i></span>
+                      <p>Añadir número de teléfono<span class="arrow"><i class="fas fa-chevron-right"></i></span></p>
+                    </div>
       {:else}
         <p>Inicia sesión</p>
       {/if}
@@ -52,11 +84,33 @@ function goAddNumber() {
   box-shadow: 0 3px 7px -3px gray;
 }
 
-.user-container {
-  padding-top: 30px;
+.profile {
+  padding-left: 40px;
 }
 
-.profile {
-  padding-left: 45px;
+.user-container {
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
+
+.name, .email, .change, .number {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.icon-user {
+  padding-right: 15px;
+  font-size: 20px;
+}
+
+.arrow {
+  font-size: 15px;
+  color: gray;
+  padding-left: 20px;
+}
+
 </style>

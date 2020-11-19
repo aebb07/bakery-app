@@ -23,3 +23,9 @@ export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
  */
 export const firebaseStorage = firebase.storage();
 //const firebaseStorage = firebase.storage();
+
+/**
+ * Firebase Firestore
+ */
+//import 'firebase/firestore';
+export const firestoreDb = firebase.firestore();
