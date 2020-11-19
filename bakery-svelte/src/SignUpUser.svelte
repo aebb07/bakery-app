@@ -1,6 +1,5 @@
 <script>
     import {firebaseAuth, firestoreDb} from './firebase';
-    import { user } from './store.js';
     import { componente } from './store.js';
 
     var email, password, name;
@@ -20,11 +19,11 @@
             console.error(error)
         }).then (
             userCredential => {
-                alert('Usuario creado');
+                alert('Usuario creado! Revisa tu Email');
                 userCredential.user.sendEmailVerification()
                     .then(
                         function() {
-                            alert('Revisa tu email!');
+                            console.log('Email sent');
                         }
                     )
                     .catch(
@@ -43,7 +42,6 @@
     }
 
 
-// Volver al Login
    function backToLogin() {
 	firebaseAuth.signOut()
 		.then(
@@ -55,7 +53,7 @@
 }
 
 function goBack() {
-    $componente = "LoginUser";
+    $componente = "LogInUser";
 }
 
 </script>
@@ -81,12 +79,11 @@ function goBack() {
                         <span class="icon-user"><i class="fas fa-lock"></i></span>
                         <input type="password" placeholder="Contraseña" bind:value={password}>
                     </div> 
-            <div id="btn">
-                <span class="noselect" on:click={logOn}>Crear</span>
-                <div id="circle">
-
-                </div>
-            </div>
+                            <div id="btn" on:click={logOn}>
+                                    <span class="noselect">Crear</span>
+                                    <div id="circle">
+                                    </div>
+                            </div>
         </div>
 </main>
 
@@ -102,11 +99,6 @@ main {
 }
 
 .signup-content {
-    /*align-items: center;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    flex-direction: column;*/
     padding-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
@@ -116,7 +108,6 @@ main {
   padding: 15px;
   display: flex;
   align-items: center;
-  /*box-shadow: 0 3px 7px -3px gray;*/
 }
 
 .back-button {
@@ -149,14 +140,13 @@ input[type="text"], input[type="email"], input[type="password"]{
     color: #ccc;
 }
 
-
 #btn {
     background: #222;
     height: 50px;
     min-width: 150px;
     border: none;
     color: #f5f5f5;
-    font-size: 25px;
+    font-size: 15px;
     font-family: 'Poppins';
     position: relative;
     transition: 1s;
@@ -166,7 +156,7 @@ input[type="text"], input[type="email"], input[type="password"]{
     justify-content: center;
     cursor: pointer;
     margin-top: 40px;
-    width: 0;
+    width: 225px;
 }
 
 #btn #circle {
@@ -181,12 +171,12 @@ input[type="text"], input[type="email"], input[type="password"]{
 }
 
 .noselect {
-  -webkit-touch-callout: none;
+    -webkit-touch-callout: none;
     -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #btn:hover {
@@ -195,8 +185,8 @@ input[type="text"], input[type="email"], input[type="password"]{
 
 #btn:hover #circle {
   height: 30px;
-  width: 150px;
-  left: 0;
+  width: 180px;
+  left: 25px;
   border-radius: 0;
   border-bottom: 2px solid #f5f5f5;
 }
