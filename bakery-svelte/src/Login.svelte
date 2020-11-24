@@ -56,7 +56,6 @@ function goLogInUser() {
 </script>
 
 
-<main>
 <div>
 	{#if $user }
 		<Content/>
@@ -87,18 +86,9 @@ function goLogInUser() {
 		</div>
     {/if}
 </div>
-</main>
+
 
 <style>
-	main {
-		height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background-color: #2d3436;
-		background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
-}
-
 	.logo-el-padrino {
 		display: block;
 		margin: auto;

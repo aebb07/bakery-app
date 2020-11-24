@@ -51,7 +51,7 @@ nav {
   background: #242424;
   overflow-x: auto;
 	width: 20rem;
-  z-index: 1;
+  z-index: 3;
 }
 
 #user-panel {

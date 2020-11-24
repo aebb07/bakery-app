@@ -43,7 +43,7 @@ function sendPasswordReset() {
 </script>
 
 
-<main>
+
   <div class="nav-bar">
     <span class="back-button" on:click={goBack}><i class="fas fa-arrow-left"></i></span>
     <h1 class="signin">Inicia Sesión</h1>
@@ -73,18 +73,18 @@ function sendPasswordReset() {
                         </div>
                       </div>
       </div>
-</main>
+
 
 
 <style>
-main {
+/*main {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #2d3436;
   background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
-}
+}*/
 
 .login-content {
   padding-top: 30px;
