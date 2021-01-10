@@ -17,9 +17,9 @@ async function logout () {
 		);
 }
 
-function goMiPerfil() {
+/*function goMiPerfil() {
 	$componente = "MyProfile";
-}
+}*/
 
 </script>
 
@@ -30,10 +30,7 @@ function goMiPerfil() {
       <UserInformation/>
     </div>
  
-      <p on:click={goMiPerfil}>Mi Perfil</p>
-      <p>Mis Pedidos</p>
-      <p>Métodos de Pago</p>
-      <p>Preguntas</p>
+      <p>Items en el carrito</p>
       <button class="logOut" on:click={logout}>Salir</button>
     </nav>
 {/if}

@@ -36,9 +36,9 @@ $: console.log($componente)
 		<LogInUser/>
 	{/if}
 
-	{#if $componente === 'MyProfile'}
+	<!--{#if $componente === 'MyProfile'}
 		<MyProfile/>
-	{/if}
+	{/if}-->
 	
 	{#if $componente === 'Content'}
 		<Content/>
