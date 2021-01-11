@@ -5,10 +5,11 @@ html, body {
 }
 
 body {
-	color: #333;
+	/*color: #333;*/
 	margin: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
+	background-color: #242424;
 }
 
 a {

@@ -14,21 +14,22 @@ function goToSummary() {
 
 
 <div class="nav">
-    {#if ($user && $user.photoURL)}
-      <img class="user-img" src={$user.photoURL} alt="user-picture">
-        {:else if $user}
-        <img class="user-img" src="https://avatars.dicebear.com/api/jdenticon/{$user.email}.svg">
+    {#if ($user && $user.displayName)}
+            <h1 class="user-name">HOLA! {$user.displayName}</h1>
+        {:else if ($user && $user.email)}
+            <h1 class="user-email">HOLA! {$user.email}</h1>
         {:else}
-      <p>Inicia sesión</p>
+            <p>Inicia sesión</p>
     {/if}
 
-    {#if ($user && $user.displayName)}
-      <h1 class="user-name">HOLA! {$user.displayName}</h1>
-      {:else if ($user && $user.email)}
-        <h1 class="user-email">HOLA! {$user.email}</h1>
-      {:else}
-       <p>Inicia sesión</p>
+    {#if ($user && $user.photoURL)}
+            <img class="user-img" src={$user.photoURL} alt="user-picture">
+        {:else if $user}
+            <img class="user-img" src="https://avatars.dicebear.com/api/jdenticon/{$user.email}.svg">
+        {:else}
+            <p>Inicia sesión</p>
     {/if}
+
 
     <a class="cart"><i class="fas fa-shopping-cart"></i> 0</a>
         <!--span class="hamburger" on:click={() => sidebar_show = !sidebar_show}><i class="fas fa-bars"></i></span>
@@ -51,7 +52,7 @@ function goToSummary() {
    .user-img {
         width: 65px;
         border-radius: 50px;
-        padding: 10px;
+        margin-left: -175px;
   }
 
   .user-name {
@@ -69,6 +70,9 @@ function goToSummary() {
     .nav {
         display: flex;
         background: #212121;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
     }
     
     .cart {
@@ -76,18 +80,11 @@ function goToSummary() {
         text-decoration: none;
     }
 
-    /*.hamburger {
-        float: left;
-        font-size: 25px;
-        padding-top: 0.5rem;
-        color: #f5f5f5;
-    }*/
-
     .buy {
         display: flex;
         align-items: center;
-        background-color: #242424;
         justify-content: center;
+        padding-top: 15px;
     }
 
     .text-buy {
