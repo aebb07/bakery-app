@@ -1,9 +1,6 @@
 <script>
 import {firebaseAuth, googleAuthProvider, firestoreDb} from './firebase';
 import Content from './Content.svelte';
-
-
-
 import {user} from './store.js';
 import { componente } from './store.js';
 
@@ -55,6 +52,7 @@ function goLogInUser() {
 
 </script>
 
+<!--####################-->
 
 <div>
 	{#if $user }
@@ -77,16 +75,17 @@ function goLogInUser() {
 						</div>
 					</div>
 			</div>
-            <div class="login1">
+            <!--div class="login1">
 				<span id="register" on:click={goSignUpUser}>Regístrate</span>
 					<div class="lOgin">
 						<p>¿Ya tienes una cuenta?</p><span id="lOgin" on:click={goLogInUser}>Iniciar sesión</span>
 					</div>
-            </div>
+            </div-->
 		</div>
     {/if}
 </div>
 
+<!--####################-->
 
 <style>
 	.logo-el-padrino {
@@ -96,7 +95,7 @@ function goLogInUser() {
 		margin-top: -30px;
 	}
 
-	.login-content, .login1, .continue {
+	.login-content, /*.login1,*/ .continue {
 		align-items: center;
     	display: flex;
     	justify-content: center;
@@ -111,7 +110,7 @@ function goLogInUser() {
 	}
 
 
-	.login1 {
+	/*.login1 {
 		padding-top: 100px;
 	}
 
@@ -135,7 +134,7 @@ function goLogInUser() {
 
 	#lOgin {
 		margin-left: 10px;
-	}
+	}*/
 
 /*Botón de Google*/
 

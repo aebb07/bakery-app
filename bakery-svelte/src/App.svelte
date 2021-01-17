@@ -1,12 +1,7 @@
 <script>
 import Login from './Login.svelte';
-import LogInUser from './LogInUser.svelte';
-import SignUpUser from './SignUpUser.svelte';
-import MyProfile from './MyProfile.svelte';
 import Content from './Content.svelte';
-import PanFrances from './PanFrances.svelte';
-import SummaryPurchase from './SummaryPurchase.svelte';
-import ChangePassword from './ChangePassword.svelte';
+import Cart from './Cart.svelte';
 
 import { componente } from './store.js';
 
@@ -15,6 +10,7 @@ $: console.log($componente)
 
 </script>
 
+<!--####################-->
 
 <svelte:head>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
@@ -28,13 +24,13 @@ $: console.log($componente)
 		<Login/>
 	{/if}
 
-	{#if $componente === 'SignUpUser'}
+	<!--{#if $componente === 'SignUpUser'}
 		<SignUpUser/>
-	{/if}
+	{/if}-->
 
-	{#if $componente === 'LogInUser'}
+	<!--{#if $componente === 'LogInUser'}
 		<LogInUser/>
-	{/if}
+	{/if}-->
 
 	<!--{#if $componente === 'MyProfile'}
 		<MyProfile/>
@@ -44,17 +40,19 @@ $: console.log($componente)
 		<Content/>
 	{/if}
 
-	{#if $componente === 'PanFrances'}
+	<!--{#if $componente === 'PanFrances'}
 		<PanFrances/>
-	{/if}
+	{/if}-->
 
-	{#if $componente === 'SummaryPurchase'}
-		<SummaryPurchase/>
-	{/if}
+	{#if $componente === 'Cart'}
+		<Cart/>
+	{/if}>
 
-	{#if $componente === 'ChangePassword'}
+	<!--{#if $componente === 'ChangePassword'}
 		<ChangePassword/>
-	{/if}
+	{/if}-->
+
+<!--####################-->
 
 <style>
 

@@ -4,11 +4,11 @@ import Offers from './Offers.svelte';
 import ContentProducts from './ContentProducts.svelte';
 
 
-let sidebar_show = false;
+/*let sidebar_show = false;*/
 import { componente } from './store.js';
 
 function goToSummary() {
-	$componente = "SummaryPurchase";
+	$componente = "Cart";
 }
 </script>
 
