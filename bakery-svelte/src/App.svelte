@@ -40,13 +40,9 @@ $: console.log($componente)
 		<Content/>
 	{/if}
 
-	<!--{#if $componente === 'PanFrances'}
-		<PanFrances/>
-	{/if}-->
-
 	{#if $componente === 'Cart'}
 		<Cart/>
-	{/if}>
+	{/if}
 
 	<!--{#if $componente === 'ChangePassword'}
 		<ChangePassword/>

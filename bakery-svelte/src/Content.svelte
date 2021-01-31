@@ -2,17 +2,39 @@
 import {user} from './store.js'
 import Offers from './Offers.svelte';
 import ContentProducts from './ContentProducts.svelte';
+import {firebaseAuth} from './firebase';
+import { products } from './cart.js';
 
+let itemsInCart = 0
+$:{
+    let count = 0
+        for (let item of $products){
+            count += item.quantity
+        }
+        itemsInCart = count
+}
 
 /*let sidebar_show = false;*/
 import { componente } from './store.js';
 
-function goToSummary() {
+
+async function logout () {
+	firebaseAuth.signOut()
+		.then(
+			console.log('User leave.')
+		)
+		.catch(
+			err=>console.error(err)
+		);
+}
+
+
+function goToCart() {
 	$componente = "Cart";
 }
 </script>
 
-
+<!--####################-->
 <div class="nav">
     {#if ($user && $user.displayName)}
             <h1 class="user-name">HOLA! {$user.displayName}</h1>
@@ -31,22 +53,19 @@ function goToSummary() {
     {/if}
 
 
-    <a class="cart"><i class="fas fa-shopping-cart"></i> 0</a>
+    <span class="cart" on:click={goToCart}><i class="fas fa-shopping-cart"></i> {itemsInCart}</span>
+    <button class="logOut" on:click={logout}>Salir</button>
         <!--span class="hamburger" on:click={() => sidebar_show = !sidebar_show}><i class="fas fa-bars"></i></span>
 
 <Sidebar bind:show={sidebar_show} /-->
+
 </div>
 
 <Offers/>
 
-<div class="buy">
-    <p class="text-buy">¿Ya terminaste?</p>
-    <button class="buy-button" on:click={goToSummary}>COMPRAR</button>
-</div>
-
 <ContentProducts/>
 
-
+<!--####################-->
 
 <style>
    .user-img {
@@ -92,4 +111,19 @@ function goToSummary() {
         margin-right: 15px;
     }
 
+
+    .logOut {
+        font-size: 20px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        padding: 8px 8px 8px 32px;
+        background: none;
+        border: none;
+        font-weight: 700;
+    }
+    
+    .logOut:hover {
+        color: #f5f5f5;
+    }
 </style>

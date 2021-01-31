@@ -1,19 +1,14 @@
 <script>
 import { componente } from './store.js'
-
-var products = [
-	{id: 1, name:'Pan Francés', count: 0, precio: 1,componente: "PanFrances"},
-	{id: 2, name:'Canillas', count: 0, precio: 1,componente: "Canillas"},
-	{id: 3, name:'Piñitas Saladas', count: 0, precio: 1,componente: "Piñitas Saladas"},
-	{id: 4, name:'Bombas Saladas', count: 0, precio: 1,componente: "Bombas Saladas"},
-	{id: 5, name:'Golfeados', count: 0, precio: 1,componente: "Golfeados"}
-];
+import { products } from './store.js'
+import ContentProduct from './ContentProduct.svelte'
 
 
-function plusCount(product) {
+
+/*function plusCount(product) {
 	console.log('+',product.count)
 	product.count += 1;
-	products = products
+	$products = products
 }
 
 function minusCount(product) {
@@ -22,17 +17,19 @@ function minusCount(product) {
     if (product.count < 0) {
         product.count = 0;
 	}
-	products = products
+	$products = products
 }
 
 function goToProduct(product) {
 	$componente = product.componente;
 }
-
+*/
 </script>
 
-{#each products as product (product.id)}
-<div class="product-card">
+
+{#each $products as product}
+<ContentProduct product = {product}/>
+<!--div class="product-card">
 	<div class="product">
 		<div class="background-white">
 			<div class="background-product" on:click={()=>{goToProduct(product)}}>
@@ -48,14 +45,14 @@ function goToProduct(product) {
 				</div>
 		</div>
 	</div>
-</div>
+</div-->
 {/each}
 
 
 <style>
 
 
-.product-card {
+/*.product-card {
 	display: flex;
 	justify-content: center;
 	padding-top: 20px;
@@ -100,5 +97,5 @@ function goToProduct(product) {
 .medidas {
 	font-size: 12px;
 	padding-left: 30px;
-}
+}*/
 </style>
