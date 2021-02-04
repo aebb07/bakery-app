@@ -1,9 +1,12 @@
 <script>
-import { componente } from './store.js'
 import { products } from './store.js'
 import ContentProduct from './ContentProduct.svelte'
+import { componente } from './store.js'
 
 
+function goToCart(){
+	$componente = 'Cart'
+} 
 
 /*function plusCount(product) {
 	console.log('+',product.count)
@@ -24,6 +27,8 @@ function goToProduct(product) {
 	$componente = product.componente;
 }
 */
+
+
 </script>
 
 
@@ -48,6 +53,11 @@ function goToProduct(product) {
 </div-->
 {/each}
 
+<footer>
+	<div class="go-cart">
+		<h1>Ver compra</h1><span on:click={goToCart}><i class="fas fa-arrow-right"></i></span>
+	</div>
+</footer>
 
 <style>
 

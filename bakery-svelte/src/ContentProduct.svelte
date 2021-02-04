@@ -24,7 +24,6 @@
     <button on:click={buyProduct}>Buy</button>
 </div>
 
-
 <style>
 
 </style>

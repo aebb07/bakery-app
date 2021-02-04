@@ -20,7 +20,7 @@ function goBack() {
 
 
 <style>
-/*.back-button {
+.back-button {
   font-size: 20px;
   padding: 10px;
 }
@@ -29,5 +29,5 @@ function goBack() {
   padding: 15px;
   display: flex;
   align-items: center;
-}*/
+}
 </style>

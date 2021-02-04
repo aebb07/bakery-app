@@ -33,7 +33,6 @@ function removeProduct() {
 </div>
 
 
-
 <style>
 
 </style>
